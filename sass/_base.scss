@@ -1,0 +1,91 @@
+//sass(syntactically awesome stylesheets) -> css with superpowers
+//we can use variables,nested rules,imports,mixins(reusable codes between UNRELATED classes, @include),inheritance(@extend)
+//our color variables
+$search-bar-border: #e6e6e6;
+$stats-color: #70757a;
+$clear-button-color: #d9d9d9;
+$background-color: #fff;
+$font-color: #000;
+$logo-red: #db3236;
+$logo-yellow: #ffc107;
+$logo-green: #3cba54;
+$logo-blue: #4885ed;
+$link-color: #1a0dab;
+$link-visited-color: #609;
+$link-outline-color: #000;
+$font-stack: "Roboto", Arial, sans-serif;
+
+// %placeholder -> sass placeholder. it looks and acts like a class selector. 
+//it's not included in the css output but it can still be extended.
+//!only the selectors that extend them will be included in the css out! -inheritance(@extend)-
+%flex {
+    display: flex;
+    align-items: center
+}
+
+//mixins(reusable codes between UNRELATED classes, @include)
+@mixin flexColumn {
+    @extend %flex; //inheritance(@extend) from %flex placeholder
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+@mixin flexCenter {
+    @extend %flex;
+    justify-content: center;
+}
+
+// mq=media query
+//@media ->different styles for different media types/devices
+//media types are print,screen,speech(for screen readers)
+@mixin mq($size) {
+    @media only screen and (min-width:$size) {
+        @content;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: $background-color;
+    color: $font-color;
+    width: 100vw; //vw->viewport width. 100vw = 100% of the viewport width = fullscreen width in browser window
+    min-height: 100vh;
+    font-family: $font-stack;
+    font-size: 22px; //also means our 1rem = 22px 
+}
+
+main {
+    @include flexColumn;
+    min-height: calc(100vh - 60px);
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    @include flexCenter;
+
+
+    p {
+        color: $stats-color;
+        // our 1rem = 22px (rem= root em = font size of the root element(html) )
+        font-size: 0.5rem;
+
+        @include mq(768px) {
+            font-size: 1rem;
+        }
+
+        a {
+            color: $stats-color;
+        }
+    }
+}
+
+img {
+    display: block;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- awesome fonts from cdnjs.com -->
+    <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- roboto regular from fonts.google.com -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="dist/css/style.min.css" />
+    <script src="./js/main.js" type="module"></script>
+
+    <title>SearchMe</title>
+</head>
+
+<body>
+    <main>
+        <h1 class="offscreen">search me a Wikipedia powered search engine</h1>
+        <section class="searchEntry">
+            <h2 class="offscreen">search term entry</h2>
+            <div class="logo" aria-hidden="true">
+                <!-- Search me! -->
+                <span class="blue">S</span>
+                <span class="red">e</span>
+                <span class="yellow">a</span>
+                <span class="blue">r</span>
+                <span class="green">c</span>
+                <span class="red">h</span>
+                <span class="blue">m</span>
+                <span class="yellow">e</span>
+                <span class="red exclaim">!</span>
+            </div>
+            <form action="" id="searchBar" class="searchBar" role="search">
+                <label for="search" class="offscreen">enter a search term or phrase</label>
+                <input type="text" id="search" role="searchbox" autocomplete="off" />
+                <!-- aria->accessible rich internet application, accessible to users with disabilities(in this case,who use screen reader)-->
+                <div id="clear" class="none button clear" role="button" tabindex="0" aria-label="clear search terms">
+                    <!-- X icon from font awesome.com -->
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <button id="searchButton" class="button searchButton" type="submit" aria-label="submit button">
+                    <!-- search icon from font awesome.com-->
+                    <i class="fa-solid fa-magnifying-glass blue"></i>
+                </button>
+            </form>
+        </section>
+        <section class="results">
+            <h2 class="offscreen">search results</h2>
+            <div class="statsBar">
+                <!-- aria-live="assertive" any updates made to this region are important so announce it to the user immediately -->
+                <div id="stats" class="stats" aria-live="assertive"></div>
+                <div id="searchResults" class="searchResults">
+
+                    <!-- comes from main.js -->
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!-- &lt; less than, &gt; greater than -->
+        <p><span aria-hidden="true">&lt;&lt; </span> Powered by <a href="https://wikipedia.org"
+                target="_blank">Wikipedia</a>
+            <span aria-hidden="true">&gt;&gt;</span>
+        </p>
+    </footer>
+</body>
+
+</html>
