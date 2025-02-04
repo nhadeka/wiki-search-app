@@ -1,1 +1,1 @@
-Search app project with Wikipedia Search Api
+Search app project with Wikipedia Api
